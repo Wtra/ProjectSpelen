@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 13, 2015 5:22:18 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="DAL.Spel" table="spel" catalog="spelendbv2" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="Id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="category" class="DAL.Category" fetch="select">
+            <column name="category_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="comment" class="DAL.Comment" fetch="select">
+            <column name="comment_id" />
+        </many-to-one>
+        <property name="titel" type="string">
+            <column name="titel" length="128" not-null="true" />
+        </property>
+        <property name="omschrijvingSpel" type="string">
+            <column name="omschrijvingSpel" length="1000" not-null="true" />
+        </property>
+        <property name="benodigdheden" type="string">
+            <column name="benodigdheden" length="250" not-null="true" />
+        </property>
+        <property name="counter" type="int">
+            <column name="counter" not-null="true" />
+        </property>
+        <property name="aantalPersonenVanaf" type="int">
+            <column name="aantalPersonenVanaf" not-null="true" />
+        </property>
+        <property name="aantalPersonenTot" type="int">
+            <column name="aantalPersonenTot" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
